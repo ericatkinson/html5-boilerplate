@@ -98,7 +98,7 @@ AddType font/opentype                  woff
 # assorted types                                      
 AddType image/x-icon                   ico
 AddType image/webp                     webp
-AddType text/cache-manifest            manifest
+AddType text/cache-manifest            appcache manifest
 AddType text/x-component               htc
 AddType application/x-chrome-extension crx
 AddType application/x-xpinstall        xpi
@@ -184,7 +184,7 @@ AddType application/octet-stream       safariextz
 # Perhaps better to whitelist expires rules? Perhaps.
   ExpiresDefault                          "access plus 1 month"
 
-# cache.manifest needs re-requests in FF 3.6 (thx Remy ~Introducing HTML5)
+# cache.appcache needs re-requests in FF 3.6 (thx Remy ~Introducing HTML5)
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
 
 # your document html 
@@ -222,8 +222,9 @@ AddType application/octet-stream       safariextz
   ExpiresByType text/css                  "access plus 2 months"
   ExpiresByType application/javascript    "access plus 2 months"
   ExpiresByType text/javascript           "access plus 2 months"
-
-  Header append Cache-Control "public"
+  <IfModule mod_headers.c>
+    Header append Cache-Control "public"
+  </IfModule>
 </IfModule>
 
 
