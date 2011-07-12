@@ -4,6 +4,8 @@
  * What follows is the result of much research on cross-browser styling. 
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
+ *
+ * Detailed information about this CSS: h5bp.com/css
  */
 
 
@@ -157,6 +159,12 @@ button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: ba
  */
 
 button, input { line-height: normal; *overflow: visible; }
+
+/*
+ * Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7
+ */
+
+table button, table input { *overflow: auto; }
 
 /*
  * 1. Display hand cursor for clickable form elements
